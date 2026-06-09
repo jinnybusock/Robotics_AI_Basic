@@ -1,6 +1,5 @@
 import torch
 import numpy as np
-import torch.optim as optim
 import matplotlib.pyplot as plt
 
 # 손실함수 정의
