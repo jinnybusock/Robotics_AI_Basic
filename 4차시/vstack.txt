@@ -1,0 +1,23 @@
+개념: 
+ - Vertical Stack의 줄임말
+ - 데이터를 '세로로 쌓아 올린다'
+
+코드 뜯뜯
+if epoch% 10== 0:
+    item= np.array([epoch, loss.item()])
+    - 현재 0번째 epoch이고 손실이 0.85라고 가정
+        --> item= [0, 0.85]
+
+    history= np.vstack((history, item))
+    - 빈 문서함인 history에 itemㅇ르 넣음
+       [[0, 0.85]]
+
+ - 10번째 epoch
+ - 가정: item= [10, 0.53]
+ - history에 누적
+    [
+    [0, 0.85],
+    [10, 0.53]
+    ]
+
+- 위 과정 반복
