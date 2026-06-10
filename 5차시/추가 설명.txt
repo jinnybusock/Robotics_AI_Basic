@@ -1,0 +1,24 @@
+AI 학습 기본 3요소
+
+1. 예측 함수 (net)
+ : 학습 데이터 입력받아 예측값 출력하는 모델 자체
+
+2. 손실 함수 (criterion)
+ : 모델의 예측값과 실제값을 비교하여 손실 계산
+
+3. 최적화 함수 (optimizer)
+ : 계산된 손실 바탕으로 모델의 parameter들을 정답에 더 가까워지는 방향으로 수정
+
+# Autograd Hook
+: 역전파 과정 중 특정 텐서의 gradient를 가로채서 확인하거나 수저할 수 있는 기능
+ - 정의
+ def gradient_hook(grad):
+    print(f"gradient 평균: {grad.mean():.4f}")
+    print(f"gradient 표준편차: {grad.std():.4f}")
+
+    return grad
+# 특정 parameter에 hook 등록
+layer.weitght.register_hook(gradient_hook)
+
+- 기준
+    평균 -0.01~0.01, 표편 0.001~0.1 사이를 좋은 상태로 봄
